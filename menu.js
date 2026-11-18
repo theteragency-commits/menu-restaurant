@@ -14,45 +14,26 @@
 //  Champs d'une catégorie :
 //    id, nom, icone, plats
 //    horaires  ex. "7 h – 11 h"
-//    style     "offre" = affichée dans le carrousel "Formules spéciales"
+//    style     "offre" = affichée en tuiles (formules) au lieu d'une liste
 //
-//  Illustrations : aube, soleil, lune, toque, crepe, crepe-sucree,
-//                  entree, cloche, cocktail, jus, horloge, vague
+//  Icônes de catégorie : aube, soleil, lune, toque, crepe, crepe-sucree,
+//                        entree, cloche, cocktail, jus
 // =============================================================
 
 window.MENU = {
   restaurant: {
     // LOGO : dépose ton fichier dans le dossier (ex. logo.png, fond transparent,
     // ~300 px de haut) et indique son nom ici. Laisser "" = rond texte "RJ".
-    logoImage: "",
+    logoImage: "logo.jpg",
     logo: "RJ",
     nom: "Splash Lounge",
-    motFond: "SPLASH",     // grand mot en contour derrière l'illustration d'accueil
-    accroche: "Cuisine créole, crêpes maison et cocktails au bord de la piscine.",
+    accroche: "Piscine · Boissons · Ambiance",
     // Coordonnées : laisser "" pour masquer
     adresse: "",
     telephone: "",
     whatsapp: "",          // format international, chiffres seulement, ex. "50912345678"
     devise: "HTG",
     slogan: "Bon manje, bon anbyans, bon moman !"
-  },
-
-  // Les 4 cartes "atouts" (tirées de la carte actuelle : rien d'inventé)
-  atouts: [
-    { icone: "horloge", titre: "De 7 h à 23 h", texte: "Petit-déjeuner, déjeuner et dîner, tous les jours de service." },
-    { icone: "toque", titre: "La crêpe maison", texte: "Notre spécialité, salée ou sucrée, et la Crêpe RJ Royal." },
-    { icone: "cocktail", titre: "14 cocktails", texte: "9 cocktails avec alcool et 5 mocktails sans alcool." },
-    { icone: "vague", titre: "Ambiance piscine", texte: "Un cocktail, une ambiance, un moment inoubliable." }
-  ],
-
-  // Bloc d'appel en bas de page
-  appel: {
-    titre: "Nos signatures",
-    texte: "La Crêpe RJ Royal, le cocktail 100 Kanpé et le nouveau RJ Magic Bubble : les incontournables de la maison.",
-    boutons: [
-      { libelle: "La crêpe signature", categorie: "crepe-signature" },
-      { libelle: "Les cocktails", categorie: "avec-alcool" }
-    ]
   },
 
   sections: [
@@ -130,7 +111,7 @@ window.MENU = {
           ]
         },
         {
-          // style "offre" : affiché dans le carrousel "Formules spéciales", pas dans la grille
+          // style "offre" : affichée en tuiles
           id: "formules", nom: "Formules spéciales", icone: "toque", style: "offre",
           plats: [
             { nom: "RJ Breakfast", description: "Crêpe sucrée + café ou jus", prix: 650 },

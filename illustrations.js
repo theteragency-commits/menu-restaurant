@@ -30,8 +30,8 @@ window.ILLUS = {
   // Cocktail bleu
   cocktail: `<svg viewBox="0 0 64 64"><path d="M10 12h44L32 36Z" fill="#e8f7ff" stroke="#bfe6fb" stroke-width="2"/><path d="M15 17h34L32 33Z" fill="#2bb6ff"/><path d="M20 19h10" stroke="#9fe0ff" stroke-width="2" stroke-linecap="round"/><rect x="30.5" y="35" width="3" height="18" fill="#bfe6fb"/><ellipse cx="32" cy="55" rx="12" ry="3" fill="#bfe6fb"/><circle cx="50" cy="13" r="8" fill="#8bc34a"/><circle cx="50" cy="13" r="5.5" fill="#c5e1a5"/><path d="M50 8v10M45 13h10" stroke="#8bc34a" stroke-width="1"/><circle cx="24" cy="24" r="1.2" fill="#fff"/><circle cx="36" cy="27" r="1" fill="#fff"/></svg>`,
 
-  // Mocktail orange
-  jus: `<svg viewBox="0 0 64 64"><defs><linearGradient id="gj" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffb347"/><stop offset="1" stop-color="#ff4b2b"/></linearGradient></defs><path d="M38 4l-6 22" stroke="#f5412d" stroke-width="3" stroke-linecap="round"/><path d="M18 18h28l-4 40H22Z" fill="#fff3ec" stroke="#f8d8d4" stroke-width="2"/><path d="M20 26h24l-3 30H23Z" fill="url(#gj)"/><rect x="25" y="30" width="6" height="6" rx="1.5" fill="#fff" opacity=".55"/><rect x="33" y="38" width="6" height="6" rx="1.5" fill="#fff" opacity=".45"/><circle cx="46" cy="20" r="8" fill="#ff9f1c"/><circle cx="46" cy="20" r="5.5" fill="#ffd08a"/><path d="M46 15v10M41 20h10" stroke="#ff9f1c" stroke-width="1"/></svg>`,
+  // Mocktail orange (aplat, pas de dégradé)
+  jus: `<svg viewBox="0 0 64 64"><path d="M38 4l-6 22" stroke="#f5412d" stroke-width="3" stroke-linecap="round"/><path d="M18 18h28l-4 40H22Z" fill="#fff3ec" stroke="#f8d8d4" stroke-width="2"/><path d="M20 26h24l-3 30H23Z" fill="#ff7a3d"/><rect x="25" y="30" width="6" height="6" rx="1.5" fill="#fff" opacity=".55"/><rect x="33" y="38" width="6" height="6" rx="1.5" fill="#fff" opacity=".45"/><circle cx="46" cy="20" r="8" fill="#ff9f1c"/><circle cx="46" cy="20" r="5.5" fill="#ffd08a"/><path d="M46 15v10M41 20h10" stroke="#ff9f1c" stroke-width="1"/></svg>`,
 
   // Atout : horloge
   horloge: `<svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="24" fill="#f5412d"/><circle cx="32" cy="32" r="19" fill="#fff"/><path d="M32 20v12l8 6" stroke="#2b1b1b" stroke-width="3" stroke-linecap="round" fill="none"/><circle cx="32" cy="32" r="2.5" fill="#f5412d"/></svg>`,
@@ -40,10 +40,3 @@ window.ILLUS = {
   vague: `<svg viewBox="0 0 64 64"><rect x="6" y="14" width="52" height="40" rx="10" fill="#2bb6ff"/><path d="M6 32c6-4 11-4 17 0s11 4 17 0 12-4 18 0v12c-6-4-12-4-18 0s-11 4-17 0-11-4-17 0Z" fill="#7fd3ff"/><path d="M22 6v20M40 6v20M22 12h18M22 20h18" stroke="#9aa3ad" stroke-width="3" stroke-linecap="round"/></svg>`
 };
 
-// Composition de l'accueil : mocktail, crêpe signature, cocktail
-window.ILLUS_HERO = `<svg viewBox="0 0 360 240">
-  <ellipse cx="180" cy="214" rx="150" ry="16" fill="#f5412d" opacity=".08"/>
-  <g transform="translate(18 40) scale(2.6)">${'<path d="M38 4l-6 22" stroke="#f5412d" stroke-width="3" stroke-linecap="round"/><path d="M18 18h28l-4 40H22Z" fill="#fff3ec" stroke="#f8d8d4" stroke-width="2"/><path d="M20 26h24l-3 30H23Z" fill="#ff7a3d"/><rect x="25" y="30" width="6" height="6" rx="1.5" fill="#fff" opacity=".55"/><circle cx="46" cy="20" r="8" fill="#ff9f1c"/><circle cx="46" cy="20" r="5.5" fill="#ffd08a"/>'}</g>
-  <g transform="translate(196 22) scale(2.6)">${'<path d="M10 12h44L32 36Z" fill="#e8f7ff" stroke="#bfe6fb" stroke-width="2"/><path d="M15 17h34L32 33Z" fill="#2bb6ff"/><rect x="30.5" y="35" width="3" height="18" fill="#bfe6fb"/><ellipse cx="32" cy="55" rx="12" ry="3" fill="#bfe6fb"/><circle cx="50" cy="13" r="8" fill="#8bc34a"/><circle cx="50" cy="13" r="5.5" fill="#c5e1a5"/>'}</g>
-  <g transform="translate(76 56) scale(3.3)">${'<ellipse cx="32" cy="48" rx="28" ry="9" fill="#fff" stroke="#f3d4cf" stroke-width="1.5"/><path d="M8 46 32 18l24 28Z" fill="#f6c45a"/><path d="M8 46 32 18l9 28Z" fill="#f0b23c"/><path d="M14 40c5 2 7-3 11-1s5 3 10 0 7 2 12 1M19 33c4 1 6-3 10-1s4 2 8 0" stroke="#6b3418" stroke-width="1.8" fill="none" stroke-linecap="round"/><path d="M47 30c4 0 6 3 5 6-1 3-3 4-5 4s-4-1-5-4c-1-3 1-6 5-6Z" fill="#f5412d"/><path d="M44 29l3 2 3-2-3-2Z" fill="#4caf50"/>'}</g>
-</svg>`;
