@@ -30,8 +30,8 @@ window.MENU = {
     accroche: "Piscine · Boissons · Ambiance",
     // Coordonnées : laisser "" pour masquer
     adresse: "",
-    telephone: "",
-    whatsapp: "",          // format international, chiffres seulement, ex. "50912345678"
+    telephone: "+509 4155 6868",
+    whatsapp: "50941556868",   // format international, chiffres seulement
     devise: "HTG",
     slogan: "Bon manje, bon anbyans, bon moman !"
   },
