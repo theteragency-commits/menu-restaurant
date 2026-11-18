@@ -54,61 +54,59 @@
     ["wa", "wa-mini"].forEach((id) => { $(id).href = url; $(id).hidden = false; });
   }
 
+  // ---------- Carte produit (reprise des cartes marketplace de Machea) ----------
+  function rendreCarte(p, cat) {
+    const li = el("li", "carte");
+    li.dataset.recherche = [p.nom, p.sousNom, p.description, p.note].filter(Boolean).join(" ").toLowerCase();
+
+    // Zone image : photo si fournie, sinon l'icône de la catégorie sur fond gris
+    const media = el("div", "carte-media");
+    if (p.photo) {
+      const img = el("img", "carte-photo");
+      img.src = p.photo; img.alt = p.nom; img.loading = "lazy";
+      media.append(img);
+    } else {
+      const ill = el("span", "carte-illu");
+      ill.setAttribute("aria-hidden", "true");
+      ill.innerHTML = window.ILLUS[cat.icone] || window.ILLUS.soleil;
+      media.append(ill);
+    }
+    const b = badges(p);
+    if (b) media.append(b);
+    li.append(media);
+
+    const texte = el("div", "carte-texte");
+    texte.append(el("h3", "carte-nom", p.nom));
+    if (p.sousNom) texte.append(el("p", "carte-sous", p.sousNom));
+    if (p.description) texte.append(el("p", "carte-desc", p.description));
+    texte.append(el("p", "carte-prix", prix(p.prix)));
+    li.append(texte);
+
+    // Bouton seulement si un numéro WhatsApp existe (un bouton qui ne fait rien serait trompeur)
+    if (r.whatsapp) {
+      const a = el("a", "carte-btn", "Commander");
+      a.href = `https://wa.me/${r.whatsapp}?text=${encodeURIComponent(`Bonjour, je voudrais commander : ${p.nom} (${prix(p.prix)})`)}`;
+      a.target = "_blank"; a.rel = "noopener";
+      li.append(a);
+    }
+    return li;
+  }
+
   // ---------- Rendu d'une catégorie ----------
   function rendreCategorie(cat) {
     const bloc = el("section", "cat");
     bloc.id = cat.id;
-    if (cat.plats.some((p) => (p.badges || []).includes("signature")) && cat.plats.length === 1) bloc.classList.add("cat-vedette");
 
     const tete = el("header", "cat-tete");
     const titres = el("div", "cat-titres");
     titres.append(el("h2", "cat-nom", cat.nom));
-    const n = cat.plats.length;
-    titres.append(el("p", "cat-meta", `${n} choix`));
+    titres.append(el("p", "cat-meta", `${cat.plats.length} choix`));
     tete.append(icone(cat.icone), titres);
     if (cat.horaires) tete.append(el("span", "pastille", cat.horaires));
     bloc.append(tete);
 
-    if (cat.style === "offre") {
-      const ul = el("ul", "tuiles");
-      cat.plats.forEach((p) => {
-        const li = el("li", "tuile");
-        li.dataset.recherche = `${p.nom} ${p.description}`.toLowerCase();
-        li.append(el("h3", "tuile-nom", p.nom));
-        const contenu = el("ul", "tuile-liste");
-        p.description.split("+").map((s) => s.trim()).filter(Boolean)
-          .forEach((s) => contenu.append(el("li", null, s)));
-        li.append(contenu, el("p", "tuile-prix", prix(p.prix)));
-        ul.append(li);
-      });
-      bloc.append(ul);
-      return bloc;
-    }
-
-    const ul = el("ul", "lignes");
-    cat.plats.forEach((p) => {
-      const li = el("li", "ligne");
-      li.dataset.recherche = [p.nom, p.sousNom, p.description, p.note].filter(Boolean).join(" ").toLowerCase();
-
-      if (p.photo) {
-        const img = el("img", "ligne-photo");
-        img.src = p.photo; img.alt = p.nom; img.loading = "lazy";
-        li.append(img);
-      }
-
-      const corps = el("div", "ligne-corps");
-      const titre = el("h3", "ligne-nom");
-      titre.append(el("span", null, p.nom));
-      const b = badges(p);
-      if (b) titre.append(b);
-      corps.append(titre);
-      if (p.sousNom) corps.append(el("p", "ligne-sous", p.sousNom));
-      if (p.description) corps.append(el("p", "ligne-desc", p.description));
-      if (p.note) corps.append(el("p", "ligne-note", p.note));
-
-      li.append(corps, el("span", "ligne-prix", prix(p.prix)));
-      ul.append(li);
-    });
+    const ul = el("ul", "grille");
+    cat.plats.forEach((p) => ul.append(rendreCarte(p, cat)));
     bloc.append(ul);
     return bloc;
   }
