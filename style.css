@@ -1,0 +1,148 @@
+:root {
+  --bg: #f7f7fb;
+  --surface: #ffffff;
+  --text: #14142b;
+  --muted: #5d5d78;
+  --border: #e4e4ef;
+  --accent: #5252db;
+  --accent-2: #1d4ed8;
+  --accent-soft: #ececfd;
+  --green: #127a4a;
+  --green-soft: #e3f5ec;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f0f1a;
+    --surface: #181828;
+    --text: #f1f1f8;
+    --muted: #a3a3bd;
+    --border: #2a2a40;
+    --accent: #8b8bff;
+    --accent-2: #6b8cff;
+    --accent-soft: #24244a;
+    --green: #5fd39b;
+    --green-soft: #15302a;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  padding-bottom: 96px;
+}
+
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+
+/* En-tête */
+.hero {
+  background: linear-gradient(135deg, var(--accent-2), var(--accent));
+  color: #fff;
+  padding: 48px 0 40px;
+}
+.eyebrow {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  opacity: .8;
+}
+.hero h1 { margin: 4px 0 6px; font-size: clamp(32px, 7vw, 48px); font-weight: 800; line-height: 1.1; }
+.slogan { margin: 0 0 20px; opacity: .9; }
+.infos { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.infos li {
+  font-size: 13px;
+  background: rgba(255,255,255,.16);
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+.infos li:empty { display: none; }
+
+/* Onglets */
+.tabs {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+.tabs-inner { display: flex; gap: 8px; overflow-x: auto; padding-top: 12px; padding-bottom: 12px; scrollbar-width: none; }
+.tabs-inner::-webkit-scrollbar { display: none; }
+.tab {
+  flex: none;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+}
+.tab.actif { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+/* Recherche */
+.search {
+  position: relative;
+  margin: 20px 0 8px;
+}
+.search svg {
+  position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
+  width: 18px; height: 18px; fill: none; stroke: var(--muted); stroke-width: 2; stroke-linecap: round;
+}
+.search input {
+  width: 100%;
+  font: inherit;
+  padding: 12px 14px 12px 42px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+}
+.search input:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+/* Catégories et plats */
+.categorie h2 { font-size: 22px; font-weight: 800; margin: 28px 0 12px; }
+.plats { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.plat {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px 16px;
+}
+.plat-haut { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.plat h3 { margin: 0; font-size: 16px; font-weight: 600; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.prix { font-weight: 800; color: var(--accent); white-space: nowrap; }
+.desc { margin: 4px 0 0; font-size: 14px; color: var(--muted); }
+
+.badge {
+  font-size: 11px; font-weight: 600;
+  padding: 2px 8px; border-radius: 999px;
+  background: var(--accent-soft); color: var(--accent);
+}
+.badge-vert { background: var(--green-soft); color: var(--green); }
+
+.vide { text-align: center; color: var(--muted); margin: 32px 0; }
+
+/* Bouton WhatsApp */
+.whatsapp {
+  position: fixed;
+  left: 16px; right: 16px; bottom: 16px;
+  max-width: 728px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 14px;
+  border-radius: 14px;
+  background: #128c4a; color: #fff;
+  font-weight: 600; text-decoration: none;
+  box-shadow: 0 8px 24px rgba(0,0,0,.18);
+}
+.whatsapp svg { width: 20px; height: 20px; fill: none; stroke: #fff; stroke-width: 2; stroke-linejoin: round; }
+
+.footer { color: var(--muted); font-size: 13px; margin-top: 32px; }

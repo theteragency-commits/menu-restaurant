@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Menu</title>
+  <meta name="description" content="Notre menu, nos plats et nos prix.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Menu</p>
+      <h1 id="nom-resto"></h1>
+      <p id="slogan" class="slogan"></p>
+      <ul class="infos">
+        <li id="info-horaires"></li>
+        <li id="info-adresse"></li>
+        <li id="info-tel"></li>
+      </ul>
+    </div>
+  </header>
+
+  <nav class="tabs" aria-label="Catégories">
+    <div class="wrap tabs-inner" id="tabs"></div>
+  </nav>
+
+  <main class="wrap">
+    <div class="search">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="recherche" type="search" placeholder="Rechercher un plat…" aria-label="Rechercher un plat">
+    </div>
+    <div id="menu"></div>
+    <p id="vide" class="vide" hidden>Aucun plat ne correspond à ta recherche.</p>
+  </main>
+
+  <a id="btn-whatsapp" class="whatsapp" target="_blank" rel="noopener" hidden>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20.5l1.6-5.2A8.5 8.5 0 1 1 21 11.5Z"/></svg>
+    Commander sur WhatsApp
+  </a>
+
+  <footer class="wrap footer">
+    <p>Prix en <span id="devise-footer"></span>, susceptibles de changer.</p>
+  </footer>
+
+  <script src="menu.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
